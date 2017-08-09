@@ -1,8 +1,7 @@
 # SFJobCreator
 
-The Microsoft Service Fabric product group introduced us to an example on GitHub that does not use Default Services here: 
-
-This is a sample Service Fabric application taken from https://github.com/Azure-Samples/service-fabric-dotnet-data-aggregation.
+The Microsoft Service Fabric product group introduced us to an example on GitHub that does not use Default Services here:
+https://github.com/Azure-Samples/service-fabric-dotnet-data-aggregation.
 
 It is quite complex so Larry trimmed down the functionality in another app to illustrate solving the Default Services, or rather, not Default Services and we've posted the modified demo app here. Some things to note: 
 
