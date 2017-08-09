@@ -1,0 +1,115 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="main">
+    <div id="jobSide">
+        <fieldset>
+            <legend>Job Service Instance</legend>
+            <input type="text" id="jobName" />
+            <input type="text" id="jobParameters" />
+            <button id="newJob">Create job</button>
+        </fieldset>
+        <div id="jobResult"></div>
+        <ul id="jobs"></ul>
+    </div>
+    <div id="workSide">
+        <fieldset>
+            <legend>Work Service</legend>
+            <input type="text" id="workName" />
+            <input type="text" id="workParameters" />
+            <button id="newWork">Create job</button>
+        </fieldset>
+        <div id="workResult"></div>
+        <ul id="work"></ul>
+    </div>
+</div>
+<script>
+    $(function () {
+		var path = window.location.pathname;
+
+		$('#newJob').click(function () {
+		    $('#result').html('');
+		    var name = $('#jobName').val();
+		    var params = $('#jobParameters').val();
+		    $.ajax({
+		        url: path + '/api/jobservice/' + name + '/' + params,
+		        method: 'POST',
+		        contentType: 'application/json',
+		        dataType: 'json'
+		    })
+            .done(function () {
+                $('#jobResult').html('creating');
+            })
+            .error(function (error) {
+                $('#jobResult').html(error);
+            })
+		});
+
+        $('#newWork').click(function () {
+            $('#result').html('');
+            var name = $('#workName').val();
+            var params = $('#workParameters').val();
+            $.ajax({
+                url: path + '/api/workservice/' + name + '/' + params,
+                method: 'POST',
+                contentType: 'application/json',
+                dataType: 'json'
+            })
+            .done(function () {
+                $('#workResult').html('creating');
+            })
+            .error(function (error) {
+                $('#workResult').html(error);
+            })
+        });
+
+        function refreshJobList() {
+            $.ajax({
+                url: path + '/api/jobservice',
+                method: 'GET',
+                contentType: 'application/json',
+                dataType: 'json'
+            })
+            .done(function (jobs) {
+                var jobList = $('#jobs');
+
+                jobList.html('');
+                for (var i = 0; i < jobs.length; ++i) {
+                    jobList.append('<li>' + jobs[i].serviceName + '</li>');
+                }
+            })
+            .always(function () {
+                setTimeout(function () {
+                    refreshJobList();
+                }, 1000);
+            });
+        }
+
+        function refreshWorkList() {
+            $.ajax({
+                url: path + '/api/workservice',
+                method: 'GET',
+                contentType: 'application/json',
+                dataType: 'json'
+            })
+            .done(function (jobs) {
+                var jobList = $('#work');
+
+                jobList.html('');
+                for (var i = 0; i < jobs.length; ++i) {
+                    jobList.append('<li>' + jobs[i] + '</li>');
+                }
+            })
+            .always(function () {
+                setTimeout(function () {
+                    refreshWorkList();
+                }, 1000);
+            });
+        }
+
+        refreshJobList();
+        refreshWorkList();
+
+    });
+</script>
