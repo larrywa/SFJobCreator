@@ -1,9 +1,12 @@
 # SFJobCreator
-Service Fabric Demo App without Default Services
 
-Some things to note: 
+The Microsoft Service Fabric product group introduced us to an example on GitHub that does not use Default Services here: 
 
-If you open up ApplicationManifest.xml, you will see no < DefaultServices > section, which means that you need another way to start the services.
+This is a sample Service Fabric application taken from https://github.com/Azure-Samples/service-fabric-dotnet-data-aggregation.
+
+It is quite complex so Larry trimmed down the functionality in another app to illustrate solving the Default Services, or rather, not Default Services and we've posted the modified demo app here. Some things to note: 
+
+If you open up ApplicationManifest.xml, you will see no <DefaultServices> section, which means that you need another way to start the services.
 
 The ApplicationManifest.xml is updated but nothing else in the app itself is touched. 
 
