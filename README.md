@@ -22,7 +22,7 @@ Using PowerShell to scale your application instead of a text file makes a lot of
 
 > The product group introduced us to an example on GitHub that does not use Default Services here: https://github.com/Azure-Samples/service-fabric-dotnet-data-aggregation
 
-It is quite complex so Larry trimmed down the functionality in another app to illustrate solving the Default Services, or rather, not Default Services with this demo app here:
+It is quite complex so Larry Wall (MSFT Premier Consultant) trimmed down the functionality in another app to illustrate solving the Default Services, or rather, not Default Services with this demo app here:
 https://github.com/dkj0/SFJobCreator.
 
 # Some things to note:
@@ -42,4 +42,9 @@ Deployment.ps1 - This is the primary script to do the application deployment. Yo
 To deploy using this method, just change the appropriate parameter values in Deploy.ps1, right-click on it in Visual Studio and select ‘Execute as Script’. I like to run it in PowerShell ISE just to see how it works, but when you get it working, that’s the fastest way to test from Visual Studio.
 
 The only challenge with this model is debugging locally. If you keep the <DefaultServices> way of doing things, you can just put a breakpoint in your code and hit F5 and hit your breakpoint, but using no default services, you are instead going to have to attach the Visual Studio debugger to the process that's running. For example if you were running the JobCreatorDemo on your local cluster, you would see both WorkService.exe and WebService.exe running that you can attach to.
+
+<hr>
+Special thanks to Larry Wall for his help with this example.
+https://github.com/dkj0/SFJobCreator
+
 
