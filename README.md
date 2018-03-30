@@ -20,8 +20,7 @@ Using PowerShell to scale your application instead of a text file makes a lot of
 - It doesn't teach your organization the APIs that they will need to do most real work (new/update)
 - Using Default Services doesn't teach people that the set of services and their properties (as well as the set of applications and their properties) are dynamic and that services and app can be created and modified on the fly.
 
-> The product group introduced us to an example on GitHub that does not use Default Services here:
-> [Service Fabric Dotnet Data Aggregation] (https://github.com/Azure-Samples/service-fabric-dotnet-data-aggregation).
+> The product group introduced us to an example on GitHub that does not use Default Services here: https://github.com/Azure-Samples/service-fabric-dotnet-data-aggregation
 
 It is quite complex so Larry trimmed down the functionality in another app to illustrate solving the Default Services, or rather, not Default Services with this demo app here:
 https://github.com/dkj0/SFJobCreator.
