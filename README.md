@@ -26,7 +26,10 @@ It is quite complex so Larry Wall (MSFT Premier Consultant) trimmed down the fun
 https://github.com/dkj0/SFJobCreator.
 
 # Some things to note:
-
+- this sample(WebService.csproj) uses bower. So make sure you have installed bower.  if you don't,run
+ ```
+  npm install -g bower
+ ```
 - If you open up ApplicationManifest.xml, you will see no <DefaultServices> section, which means that you need another way to start the services.
 - The ApplicationManifest.xml is updated but nothing else in the app itself is touched.
      
@@ -34,8 +37,8 @@ There are a couple of PS scripts under the JobCreatorDemo-NDS\Scripts folder for
 - ApplicationPackageUpgrade.ps1 - this allows you to take an updated application package (config, code etc.) and update the version of the application that you have in your cluster. In this example file, the only thing that has changed is the ApplicationManifest.xml file. You could, however, update services or anything within the application and deploy it. You will find a sub-directory under the .\Scripts directory that contains the updated ApplicationManifest.xml. You would need to change the parameter names in the code to match your own app, or pass in parameters.
      
 - Cleanup.ps1 - This script will clean up applications that have been installed in your cluster.
-ConfigParamUpgrade.ps1 - This script can be used to update parameters that exist inside the ApplicationManifest.xml file.
-Deployment.ps1 - This is the primary script to do the application deployment. You would need to change the application names and other parameters prior to running this.
+- ConfigParamUpgrade.ps1 - This script can be used to update parameters that exist inside the ApplicationManifest.xml file.
+- Deployment.ps1 - This is the primary script to do the application deployment. You would need to change the application names and other parameters prior to running this.
 
 # Deploying
 
